@@ -8,7 +8,7 @@ public interface WeatherService {
 
 	CiudadDetalle getDetalleClima(String ciudad);
 	
-	List<String> getListaCiudades(String usuario);
+	List<CiudadDetalle> getListaCiudades(String usuario);
 	
 	List<CiudadDetalle> getListaCiudadDetalle();
 }

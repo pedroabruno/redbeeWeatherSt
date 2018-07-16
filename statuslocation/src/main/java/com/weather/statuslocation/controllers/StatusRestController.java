@@ -1,7 +1,5 @@
 package com.weather.statuslocation.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.weather.statuslocation.resources.ResponseDetalleCiudad;
 import com.weather.statuslocation.resources.ResponseListaCiudadDetalle;
-import com.weather.statuslocation.resources.ResponseListaCiudades;
 import com.weather.statuslocation.services.WeatherService;
 
 @RestController
@@ -40,10 +37,9 @@ public class StatusRestController {
 	}
 	
 	@RequestMapping(value = "/boards/{usuario}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody ResponseListaCiudades getListaCiudades(@PathVariable String usuario) {
-		ResponseListaCiudades respuesta = new ResponseListaCiudades();
-		List<String> listaCiudades = weatherService.getListaCiudades(usuario);
-		respuesta.setListaCiudades(listaCiudades);
+	public @ResponseBody ResponseListaCiudadDetalle getListaCiudades(@PathVariable String usuario) {
+		ResponseListaCiudadDetalle respuesta = new ResponseListaCiudadDetalle();
+		respuesta.setListaCiudades(weatherService.getListaCiudades(usuario));
 		return respuesta;
 	}
 	

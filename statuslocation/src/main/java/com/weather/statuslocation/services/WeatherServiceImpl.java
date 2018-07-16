@@ -25,11 +25,12 @@ public class WeatherServiceImpl implements WeatherService {
 	}
 	
 	@Override
-	public List<String> getListaCiudades(String usuario){
+	public List<CiudadDetalle> getListaCiudades(String usuario){
 		List<String> listaCiudades = dbService.getCiudades(usuario);
-		return listaCiudades;
+		return getListaCiudadDetalle(listaCiudades);
 	}
 	
+	//borrar
 	@Override
 	public List<CiudadDetalle> getListaCiudadDetalle(){
 		List<CiudadDetalle> listaCiudadesDetalle = new ArrayList<CiudadDetalle>();
@@ -41,5 +42,13 @@ public class WeatherServiceImpl implements WeatherService {
 		return listaCiudadesDetalle;
 	}
 	
+	private List<CiudadDetalle> getListaCiudadDetalle(List<String> listaCiudades){
+		List<CiudadDetalle> listaCiudadesDetalle = new ArrayList<CiudadDetalle>();
+		for (String ciudad : listaCiudades) {
+			CiudadDetalle ciudadDetalle = weatherClient.getDetalleCiudad(ciudad);
+			listaCiudadesDetalle.add(ciudadDetalle);
+		}
+		return listaCiudadesDetalle;
+	}
 	
 }

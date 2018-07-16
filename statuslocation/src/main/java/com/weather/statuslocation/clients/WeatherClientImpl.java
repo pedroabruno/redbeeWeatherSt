@@ -42,7 +42,7 @@ public class WeatherClientImpl implements WeatherClient {
 			
 			JSONObject json = new JSONObject(sb.toString());
 
-			map(json,detalleCiudad);
+			map(json,ciudad,detalleCiudad);
 			
 			conn.disconnect();
 		} catch (MalformedURLException e) {
@@ -56,10 +56,11 @@ public class WeatherClientImpl implements WeatherClient {
 		return detalleCiudad;
 	}
 	
-	private void map(JSONObject json , CiudadDetalle detalleCiudad) throws JSONException{
-		detalleCiudad.setViento(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getJSONObject("wind").getString("chill"));;
-		detalleCiudad.setHumedad(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getJSONObject("atmosphere").getString("humidity"));;
-		detalleCiudad.setNombre(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getString("title"));;
+	private void map(JSONObject json , String ciudad, CiudadDetalle detalleCiudad) throws JSONException{
+		detalleCiudad.setNombre(ciudad);
+		detalleCiudad.setPais(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getJSONObject("location").getString("country"));
+		detalleCiudad.setViento(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getJSONObject("wind").getString("chill"));
+		detalleCiudad.setHumedad(json.getJSONObject("query").getJSONObject("results").getJSONObject("channel").getJSONObject("atmosphere").getString("humidity"));
 
 	}
 }

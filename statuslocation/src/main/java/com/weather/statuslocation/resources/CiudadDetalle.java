@@ -4,6 +4,8 @@ public class CiudadDetalle {
 	
 	private String nombre;
 	
+	private String pais;
+
 	private String viento;
 	
 	private String humedad;
@@ -14,6 +16,14 @@ public class CiudadDetalle {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	
 	public String getViento() {
 		return viento;
 	}

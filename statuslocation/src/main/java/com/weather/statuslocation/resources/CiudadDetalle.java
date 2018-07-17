@@ -4,36 +4,42 @@ public class CiudadDetalle {
 	
 	private String nombre;
 	
-	private String pais;
+	private String codigo;
 
-	private String viento;
+	private String temperatura;
 	
-	private String humedad;
-	
+	private String condicion;
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public String getPais() {
-		return pais;
+
+	public String getCodigo() {
+		return codigo;
 	}
-	public void setPais(String pais) {
-		this.pais = pais;
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
-	
-	public String getViento() {
-		return viento;
+
+	public String getTemperatura() {
+		return temperatura;
 	}
-	public void setViento(String viento) {
-		this.viento = viento;
+
+	public void setTemperatura(String temperatura) {
+		this.temperatura = temperatura;
 	}
-	public String getHumedad() {
-		return humedad;
+
+	public String getCondicion() {
+		return condicion;
 	}
-	public void setHumedad(String humedad) {
-		this.humedad = humedad;
+
+	public void setCondicion(String condicion) {
+		this.condicion = condicion;
 	}
+
 }
